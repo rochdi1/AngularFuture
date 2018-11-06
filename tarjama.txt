@@ -1,0 +1,10 @@
+stand-alone: autonome| eigenständige | قائمة بذاتها
+ambient:ambiant | umgebend | الجو المحيط
+Runtime:Runtime | Laufzeit | وقت التشغيل
+Despite:Malgré | Trotz | على الرغم من
+described: décrit | beschrieben | وصف
+interface generic: interface générique | Schnittstelle generisch | واجهة عامة
+immutable symbole: symbole immuable | unveränderliche symbole | رمز غير قابل للتغيير
+several: nombreuses | mehrere | العديد من
+flags: drapeaux | Flaggen | الأعلام
+Iteration: action de repeter un processus (for schleife)
