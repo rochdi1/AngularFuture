@@ -81,3 +81,5 @@ snippet-creator - helps you creating code snippets (saves snippets in the User S
 
 Enjoy!
 //******
+emit : ينبعث | aussenden
+splice : لصق | coller, 	faire marier , kleben

@@ -1,0 +1,49 @@
+app ----> first :Input
+app <---- first :Output
+Parent     Child
+------
+* Send data from Child to parent :Input
+//first.comp
+definiren die Input in first 
+exp: <first [message]="sendMessage" ></first>
+
+
+//app.comp
+sendMessage() {
+    return "text lorem ipsum"
+}
+
+-----------
+*Send data from parent to Child :Output
+I use event.emmiter while the Parent is compiled.that's why i use event.emmiter, so I can new data tracking
+
+------------
+*child.ts
+@Input() message:string;
+@Output() notify:new EventEmitter<number>();
+
+//send data to parant
+send() {
+    this.notify.emit(20);
+}
+----------------
+*parent.html
+<p> {{ counter }}</p>
+<first [message]="sendmessage()" (notify)="getfromChild($event)"></first>
+----------------
+*parent.ts
+//counter of notification
+counter:number=0;
+
+//send data to child
+sendMessage() {
+    return "text lorem ipsum"
+}
+
+//get From child
+getfromChild(event) {
+    this.counter+=event;
+}
+
+-----------
+<a class="bm-book-list-item item" *ngFor="let b of books" [book]="b" (click)="showDetails(b)"></a>

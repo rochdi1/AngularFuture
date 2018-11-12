@@ -1,11 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyFirstComponentComponent } from './my-first-component/my-first-component.component';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { BookListComponent } from './book-list/book-list.component';
+import { BookListItemComponent } from './book-list-item/book-list-item.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookStoreService } from './shared/book-store.service';
 
 
 
@@ -13,15 +17,19 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    MyFirstComponentComponent
+    MyFirstComponentComponent,
+    BookListComponent,
+    BookListItemComponent,
+    BookDetailsComponent
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [BookStoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
