@@ -1,9 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<!--
+  <app-book-list *ngIf="listOn" (showDetailsEvent)="showDetails($event)"></app-book-list>
+  <app-book-details *ngIf="detailsOn" [book]="book" (showListEvent)="showList()"></app-book-details>
+-->
+<div class="ui two item tabs menu">
+  <a routerLink="home" class="item">Home</a>
+  <a routerLink="books" class="item">Bücher</a>
+</div>
 
-<app-book-list *ngIf="listOn" (showDetailsEvent)="showDetails($event)"></app-book-list>
-<app-book-details *ngIf="detailsOn" [book]="book" (showListEvent)="showList()"></app-book-details>
+
 <router-outlet>
   <!-- <div class="ui active inverted dimmer">
     <div class="ui text loader large">"Lade BookMonkey2..."</div>
   </div> -->
-</router-outlet> 
+</router-outlet>

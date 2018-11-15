@@ -3,5 +3,5 @@
 </p>
 <div class="ui middle aligned selection divided list">
   <!-- books[] with ngOnInit , [bookItem] => OnInput to book-list-item  -->
-    <a class="bm-book-list-item item" *ngFor="let b of books" [bookItem]="b" (click)="showDetails(b)"></a>
+    <a class="bm-book-list-item item" *ngFor="let b of books" [bookItem]="b" [routerLink]="b.isbn"></a>
 </div>
