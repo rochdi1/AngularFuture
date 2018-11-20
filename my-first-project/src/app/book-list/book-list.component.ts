@@ -13,14 +13,13 @@ export class BookListComponent implements OnInit {
   @Output() showDetailsEvent = new EventEmitter<Book>();
 
 
-  constructor(private bss: BookStoreService ) { }
+  constructor(private bss: BookStoreService ) {
+    console.log('test');
+   }
 
   ngOnInit() {
-    this.books = this.bss.getAll();
-  }
-
-  private newMethod() {
-    return this;
+  this.bss.getAll().subscribe(b => this.books = b);
+  // console.log(this.bss.getAll().subscribe(b => this.books = b));
   }
 
   showDetails(bookItem: Book) {

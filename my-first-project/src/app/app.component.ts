@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, enableProdMode  } from '@angular/core';
 import { Book } from './shared/book';
 
+enableProdMode();
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
