@@ -2,8 +2,8 @@ import { Book } from './book';
 
 
 export class BookFactory {
-    static expect(): Book {
-        return new Book('', '', [''], new Date(), '', 0, [{url: '', title: ''}], '');
+    static empty(): Book {
+      return new Book('', '', [''], new Date(), '', 0, [{url: '', title: ''}], '');
     }
 
     static fromObject(rawBook: any): Book {
