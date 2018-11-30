@@ -16,8 +16,8 @@ export class APICallService {
 
   getPost() {
   //  return this.http.get('http://book/api/books');
- // return this.http.get('api/books');
- return true;
+  return this.http.get('api/books');
+ // return true;
   }
 
 }
