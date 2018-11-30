@@ -7,10 +7,12 @@ import 'rxjs/add/observable/throw';
 import { Book } from './book';
 import { BookRaw } from './book-raw';
 import { BookFactory } from './book-factory';
+import { throwError } from 'rxjs';
+
 
 @Injectable()
 export class BookStoreService {
-  private api = 'https://book-monkey2-api.angular-buch.com';
+  private api = '/api';
 
   constructor(private http: HttpClient) {}
 /*
@@ -48,7 +50,17 @@ export class BookStoreService {
 
   getSingle(isbn: string): Observable<Book> {
     return this.http
-      .get<BookRaw>(`${this.api}/book/${isbn}`)
+      .get<BookRaw>(`${this.api}/books/${isbn}`)
+      .pipe(
+        retry(3),
+        map(rawBook => BookFactory.fromObject(rawBook)),
+        catchError(this.errorHandler)
+      );
+  }
+
+  getAllSearch(data: string): Observable<Book> {
+    return this.http
+      .get<BookRaw[]>(`${this.api}/books/search/${data}`)
       .pipe(
         retry(3),
         map(rawBook => BookFactory.fromObject(rawBook)),
@@ -58,7 +70,7 @@ export class BookStoreService {
 
   create(book: Book): Observable<any> {
     return this.http
-      .post(`${this.api}/book`, book, { responseType: 'text' })
+      .post(`${this.api}/books`, book, { responseType: 'text' })
       .pipe(
         catchError(this.errorHandler)
       );
@@ -66,7 +78,7 @@ export class BookStoreService {
 
   update(book: Book): Observable<any> {
     return this.http
-      .put(`${this.api}/book/${book.isbn}`, book, { responseType: 'text' })
+      .put(`${this.api}/books/${book.isbn}`, book, { responseType: 'text' })
       .pipe(
         catchError(this.errorHandler)
       );
@@ -74,13 +86,13 @@ export class BookStoreService {
 
   remove(isbn: string): Observable<any> {
     return this.http
-      .delete(`${this.api}/book/${isbn}`, { responseType: 'text' })
+      .delete(`${this.api}/books/${isbn}`, { responseType: 'text' })
       .pipe(
         catchError(this.errorHandler)
       );
   }
 
   private errorHandler(error: Error | any): Observable<any> {
-    return Observable.throw(error);
+    return throwError(error);
   }
 }

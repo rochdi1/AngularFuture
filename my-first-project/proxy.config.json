@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+        "target": "http://book",
+        "secure": false,
+        "loglevel": "debug",
+        "changeOrigin": true
+    }
+}

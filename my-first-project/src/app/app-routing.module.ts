@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { BookListComponent } from './book-list/book-list.component';
 import { HomeComponent } from './home/home.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
     path: 'books/:isbn',
     component: BookDetailsComponent
   },
+  {
+    path: 'test',
+    component: TestComponent
+  },
+
 ];
 
 @NgModule({

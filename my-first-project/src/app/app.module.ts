@@ -11,6 +11,10 @@ import { BookListItemComponent } from './book-list-item/book-list-item.component
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookStoreService } from './shared/book-store.service';
 import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './search/search.component';
+import { StreamService } from './stream.service';
+import { TestComponent } from './test/test.component';
+import { APICallService } from './apicall.service';
 
 
 @NgModule({
@@ -20,7 +24,9 @@ import { HomeComponent } from './home/home.component';
     BookListComponent,
     BookListItemComponent,
     BookDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent,
+    TestComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
@@ -29,7 +35,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [BookStoreService],
+  providers: [BookStoreService, StreamService, APICallService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
