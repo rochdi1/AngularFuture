@@ -13,10 +13,8 @@ import { Book } from '../shared/book';
 export class TestComponent implements OnInit {
 
   constructor(protected MyStream: StreamService, private call: APICallService) { }
-  
-  interface myData {
-    apibooks: Book[];
-  }
+
+ books: {};
 
   ngOnInit() {
   }
@@ -30,7 +28,7 @@ export class TestComponent implements OnInit {
 
   callApi() {
    return this.call.getPost().subscribe(
-      next => { console.log(next); },
+      next => { this.books = next; },
       error => { console.log(error); },
       () => { console.log('Done'); }
     );
