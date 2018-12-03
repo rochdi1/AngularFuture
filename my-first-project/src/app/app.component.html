@@ -3,7 +3,7 @@
   <app-book-list *ngIf="listOn" (showDetailsEvent)="showDetails($event)"></app-book-list>
   <app-book-details *ngIf="detailsOn" [book]="book" (showListEvent)="showList()"></app-book-details>
 -->
-<app-search></app-search>
+
 <div class="ui two item tabs menu">
   <a routerLink="home" class="item">Home</a>
   <a routerLink="books" class="item">Bücher</a>

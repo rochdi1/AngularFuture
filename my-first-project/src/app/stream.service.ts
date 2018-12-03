@@ -18,11 +18,6 @@ export class StreamService {
      setTimeout(() => { observer.next('value2'); }, 3000);
      setTimeout(() => { observer.next('value3'); }, 5000);
      setTimeout(() => { observer.complete(); }, 6000);
-   /*  observer.next('value1'),
-     observer.next('value2'),
-     observer.complete();
-*/
-
    }
  );
 

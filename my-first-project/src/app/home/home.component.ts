@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
     BuchListe ansehen
     <i class="right arrow icon"></i>
     </a>
+    <app-search></app-search>
   `,
   styles: []
 })

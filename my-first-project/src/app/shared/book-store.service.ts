@@ -58,9 +58,9 @@ export class BookStoreService {
       );
   }
 
-  getAllSearch(data: string): Observable<Book> {
+  getAllSearch(searchTerm: string): Observable<Book> {
     return this.http
-      .get<BookRaw[]>(`${this.api}/books/search/${data}`)
+      .get<BookRaw[]>(`${this.api}/books/search/${searchTerm}`)
       .pipe(
         retry(3),
         map(rawBook => BookFactory.fromObject(rawBook)),
