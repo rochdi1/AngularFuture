@@ -4,6 +4,7 @@ import { BookListComponent } from './book-list/book-list.component';
 import { HomeComponent } from './home/home.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
 import { TestComponent } from './test/test.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'books/:isbn',
     component: BookDetailsComponent
+  },
+  {
+    path: 'books/search/:searchTerm',
+    component: SearchComponent
   },
   {
     path: 'test',

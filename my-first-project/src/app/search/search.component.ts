@@ -13,13 +13,11 @@ import { BookStoreService } from '../shared/book-store.service';
 })
 export class SearchComponent implements OnInit {
 
-  foundBooks: Book = [];
+  foundBooks: Book[] = [];
   constructor(private bs: BookStoreService) {}
   // umser Ziel :
   @Output() bookSelected = new EventEmitter<Book>();
    keyup = new EventEmitter<string>();
-
-
 
   ngOnInit() {
     this.keyup
@@ -29,6 +27,7 @@ export class SearchComponent implements OnInit {
       switchMap(searchTerm => this.bs.getAllSearch(searchTerm)),
     )
     .subscribe(books => this.foundBooks = books);
+
   }
 
 }
