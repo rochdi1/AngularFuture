@@ -13,7 +13,7 @@ import { BookStoreService } from '../shared/book-store.service';
 })
 export class SearchComponent implements OnInit {
 
-  foundBooks: Book[] = [];
+  foundBooks: Book = [];
   constructor(private bs: BookStoreService) {}
   // umser Ziel :
   @Output() bookSelected = new EventEmitter<Book>();
